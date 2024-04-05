@@ -2,9 +2,9 @@
     <x-header></x-header>
 
     <main class="bg-main flex flex-col items-center h-full">
-        <h1>test</h1>
+        <h1>test1</h1>
 
-        
+
         {{--ヘッダービジュアル--}}
         <section id="home" class="flexColumn lg:flexBetween relative z-10 w-full pb-16">
             <div class="flexColumn md:gap-12 gap-6 text-baseColor pt-24 lg:pt-0 2xl:pt-12 pl-3 md:pl-12 2xl:pl-24">
