@@ -50,5 +50,10 @@ class kikukawaController extends Controller
         return view("kikukawa", compact("categories", "products", "messages", "recruit_flow", "recruit_documents", "questions", "interviews", "job_recruits", "benefits"));
     }
 
+    public function openDetail($id)
+    {
+        return view("detail",compact("id"));
+    }
+
 }
 

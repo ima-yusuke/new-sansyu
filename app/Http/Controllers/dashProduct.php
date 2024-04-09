@@ -30,6 +30,7 @@ class dashProduct extends Controller
         $products = new Product();
         $products->p_name = $request->p_name;
         $products->path = 'storage/img/'.$file_name;
+        $products->link = $request->link;
         $products->save();
 
 
@@ -57,6 +58,7 @@ class dashProduct extends Controller
         $product->update([
             "p_name" => $request->p_name,
             "path" => $file_name,
+            "link"=>$request->link
         ]);
 
         return redirect()->route('show-product');

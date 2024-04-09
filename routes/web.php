@@ -22,6 +22,7 @@ Route::get('/',function (){
 });
 Route::get('/', [\App\Http\Controllers\kikukawaController::class,"giveInfo"])->name('giveInfo');
 
+Route::get('/detail/{id}', [\App\Http\Controllers\kikukawaController::class,"openDetail"])->name('openDetail');
 
 //=====================================================================================================
 

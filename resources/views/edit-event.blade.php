@@ -12,6 +12,9 @@
                         編集
                     </th>
                     <th scope="col" class="px-6 py-3 _sticky_b">
+                        詳細編集
+                    </th>
+                    <th scope="col" class="px-6 py-3 _sticky_b">
                         削除
                     </th>
                     <th scope="col" class="px-6 py-3 _sticky_b">
@@ -33,6 +36,11 @@
                             <td class="px-6 py-4">
                                 <div class="flexCenter">
                                     <a class="editBtn font-medium text-blue-600 dark:text-blue-500 hover:underline">編集</a>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flexCenter">
+                                    <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline">詳細編集</a>
                                 </div>
                             </td>
                             <livewire:event-livewire :id="$val['id']"></livewire:event-livewire>

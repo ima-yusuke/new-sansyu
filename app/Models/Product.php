@@ -11,5 +11,6 @@ class Product extends Model
     protected $fillable = [
         'p_name',
         'path',
+        'link'
     ];
 }

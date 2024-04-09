@@ -20,6 +20,9 @@
                     <th scope="col" class="px-6 py-3 _sticky_b">
                         商品画像
                     </th>
+                    <th scope="col" class="px-6 py-3 _sticky_b">
+                        リンク
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,6 +39,7 @@
                         <td class="px-6 py-4 flexCenter">
                             <img src="{{asset($value->path)}}" class="w-4/12 rounded-8 shrink-0 object-cover">
                         </td>
+                        <td class="px-6 py-4 w-180">{{$value["link"]}} </td>
                     </tr>
 
                     {{--hidden (編集用tr)--}}
@@ -63,6 +67,7 @@
                                     </div>
                                 </div>
                             </td>
+                            <td class="px-6 py-4"><input type="text" name="link" value="{{$value["link"]}}" class="text-dashInputColor"></td>
                         </form>
                     </tr>
                 @endforeach
@@ -85,6 +90,10 @@
                     <div>
                         <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span class="bg-red-500 text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded-8">必須</span> 製品画像</label>
                         <input type="file" accept="image/jpeg,image/png" name="image" id="image" class="bg-gray-50 border text-gray-900 text-sm rounded-lg block w-full" required />
+                    </div>
+                    <div>
+                        <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> リンク</label>
+                        <input type="text" name="link" id="link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="リンク" />
                     </div>
                 </div>
                 <x-register_btn></x-register_btn>

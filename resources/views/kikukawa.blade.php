@@ -2,8 +2,6 @@
     <x-header></x-header>
 
     <main class="bg-main flex flex-col items-center h-full">
-        <h1>test1</h1>
-
 
         {{--ヘッダービジュアル--}}
         <section id="home" class="flexColumn lg:flexBetween relative z-10 w-full pb-16">
@@ -36,13 +34,15 @@
                             </h3>
 
                             @foreach($value->category as $idx =>$val)
-                                <div class="flexBetween w-full self-stretch border border-solid border-titleBlack p-4 rounded-8 bg-white shadow-border">
-                                    <aside class="flexColumn items-start gap-2">
-                                        <p class="text-xs font-normal">{{$val["date"]}}</p>
-                                        <p class="text-sm font-normal">{{$val["title"]}}</p>
-                                    </aside>
-                                    <div><i class="fa-solid fa-caret-right"></i></div>
-                                </div>
+                                <a target="_blank" class="w-full h-full" href="{{route("openDetail",$val["id"])}}">
+                                    <div class="flexBetween w-full self-stretch border border-solid border-titleBlack p-4 rounded-8 bg-white shadow-border">
+                                        <aside class="flexColumn items-start gap-2">
+                                            <p class="text-xs font-normal">{{$val["date"]}}</p>
+                                            <p class="text-sm font-normal">{{$val["title"]}}</p>
+                                        </aside>
+                                        <div><i class="fa-solid fa-caret-right"></i></div>
+                                    </div>
+                                </a>
                             @endforeach
                         </article>
                     @endif
@@ -68,7 +68,7 @@
                         1897（明治30）年、日本初の製材・木工機械メーカーとして伊勢で創業。「切る・削る・磨く」技術の革新をし続け、常に新しい様々な分野の加工機を製造・販売しています。</p>
                 </div>
                 <div>
-                    <a class="flex items-center justify-between w-48 py-1.5 px-6 border border-solid border-baseColor rounded-button">詳しく見る<i
+                    <a href="https://www.kikukawa.co.jp/company/" target="_blank" class="flex items-center justify-between w-48 py-1.5 px-6 border border-solid border-baseColor rounded-button">詳しく見る<i
                             class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
             </article>
         </section>
@@ -90,16 +90,24 @@
                 <article class="flex flex-col justify-center items-start gap-16">
                     <div class="flex items-start justify-center content-start gap-6 flex-wrap w-full">
                         @foreach($products as $key=>$value)
-                            <aside class="shadow-item flexColumn overflow-hidden h-230 2xl:h-300 items-center gap-2 pb-4 rounded-8 w-[90%] md:w-[48%] lg:w-[31%]">
-                                <img src="{{asset($value->path)}}" class="h-[85%] w-full rounded-8 shrink-0 object-cover" alt="image">
-                                <p>{{$value["p_name"]}}</p>
-                            </aside>
+                            @if(isset($value["link"]))
+                                <a href="{{$value["link"]}}" class="shadow-item flexColumn overflow-hidden h-230 2xl:h-300 items-center gap-2 pb-4 rounded-8 w-[90%] md:w-[48%] lg:w-[31%]" target="_blank">
+                                    <img src="{{asset($value->path)}}" class="h-[85%] w-full rounded-8 shrink-0 object-cover" alt="image">
+                                    <p>{{$value["p_name"]}}</p>
+                                </a>
+                            @else
+                                <aside class="shadow-item flexColumn overflow-hidden h-230 2xl:h-300 items-center gap-2 pb-4 rounded-8 w-[90%] md:w-[48%] lg:w-[31%]">
+                                    <img src="{{asset($value->path)}}" class="h-[85%] w-full rounded-8 shrink-0 object-cover" alt="image">
+                                    <p>{{$value["p_name"]}}</p>
+                                </aside>
+                            @endif
+
                         @endforeach
                     </div>
                 </article>
             </div>
             <div class="mt-8 md:mt-12">
-                <a class="flex items-center justify-between w-48 py-1.5 px-6 border border-solid border-baseColor rounded-button">製品を見る<i
+                <a href="https://www.kikukawa.co.jp/product/" target="_blank" class="flex items-center justify-between w-48 py-1.5 px-6 border border-solid border-baseColor rounded-button">製品を見る<i
                         class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
         </section>
 
@@ -320,5 +328,11 @@
         {{--フッター--}}
        <x-footer></x-footer>
     </main>
+    @vite(['resources/js/index.js'])
+{{--    <script>--}}
+{{--        window.Laravel = {};--}}
+{{--        window.Laravel.products = @json($products);--}}
+{{--        console.log(window.Laravel);--}}
+{{--    </script>--}}
 </x-layout>
 

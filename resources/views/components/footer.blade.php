@@ -11,7 +11,7 @@
             </aside>
         </div>
         <div class="z-30 m-auto mb-10 md:m-0">
-            <a class="flexCenter py-3.5 px-9 text-white shadow-buttonShadow rounded-button bg-gradient-to-r from-buttonLinerStart from-0% to-buttonLinerEnd to-100%">エントリーする→</a>
+            <a href="https://www.kikukawa.co.jp/contact/recruit.php" target="_blank" class="flexCenter py-3.5 px-9 text-white shadow-buttonShadow rounded-button bg-gradient-to-r from-buttonLinerStart from-0% to-buttonLinerEnd to-100%">エントリーする→</a>
         </div>
         {{-- 背景ボール　左上--}}
         <div class="rounded-1019 h-357 w-447 -left-240 -top-180 absolute bg-footerBall"></div>
