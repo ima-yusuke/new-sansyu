@@ -23,6 +23,8 @@ Route::get('/',function (){
 Route::get('/', [\App\Http\Controllers\kikukawaController::class,"giveInfo"])->name('giveInfo');
 
 Route::get('/detail/{id}', [\App\Http\Controllers\kikukawaController::class,"openDetail"])->name('openDetail');
+Route::get('/dashboard/edit-detail/{id}', [\App\Http\Controllers\kikukawaController::class,"openEditDetail"])->name('openEditDetail');
+Route::post('/posts', [\App\Http\Controllers\kikukawaController::class,"storeData"])->name('posts');
 
 //=====================================================================================================
 

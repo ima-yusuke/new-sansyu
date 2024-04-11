@@ -40,7 +40,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flexCenter">
-                                    <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline">詳細編集</a>
+                                    <a href="{{route("openEditDetail",$val["id"])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">詳細編集</a>
                                 </div>
                             </td>
                             <livewire:event-livewire :id="$val['id']"></livewire:event-livewire>
@@ -57,6 +57,9 @@
                                 @method("patch")
                                 <td class="px-6 py-4">
                                     <x-dashboard_btn></x-dashboard_btn>
+                                </td>
+                                <td class="px-6 py-4">
+                                   -
                                 </td>
                                 <livewire:event-livewire :id="$val['id']"></livewire:event-livewire>
                                 <td class="px-6 py-4"><input type="text" name="title" value="{{$val["title"]}}" class="text-sm text-dashInputColor" required> </td>

@@ -34,7 +34,7 @@
                             </h3>
 
                             @foreach($value->category as $idx =>$val)
-                                <a target="_blank" class="w-full h-full" href="{{route("openDetail",$val["id"])}}">
+                                <a class="w-full h-full" href="{{route("openDetail",$val["id"])}}">
                                     <div class="flexBetween w-full self-stretch border border-solid border-titleBlack p-4 rounded-8 bg-white shadow-border">
                                         <aside class="flexColumn items-start gap-2">
                                             <p class="text-xs font-normal">{{$val["date"]}}</p>

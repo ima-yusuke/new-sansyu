@@ -18,7 +18,8 @@ export default defineConfig({
                 app: 'resources/js/app.js',
                 appStyles: 'resources/css/app.css',
                 index: 'resources/js/index.js',
-                detail: 'resources/js/detail.js'
+                detail: 'resources/js/detail.js',
+                show_detail:'resources/js/show-detail.js'
             }
         }
     }
