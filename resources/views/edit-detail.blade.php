@@ -18,11 +18,22 @@
 
             {{--Axios通信のため--}}
             <input type="hidden" value="{{$selectedEvent["id"]}}" id="selected_id">
-            <button id="submit_btn" type="button" data-route="{{ route('posts') }}">submit</button>
+
+            <div class="flex justify-center">
+                <button id="submit_btn" type="button" data-route="{{ route('posts') }}" class="mt-8 btn btn-border shadow-xl text-sm px-10 py-3 text-center">登録</button>
+            </div>
 
         </div>
     </div>
 
     @vite(['resources/js/detail.js'])
 </x-dash-layout>
+
+<script>
+
+    window.Laravel = {};
+    window.Laravel.data = @json($data);
+
+</script>
+
 

@@ -72,7 +72,9 @@ class kikukawaController extends Controller
     public function openEditDetail($id)
     {
         $selectedEvent = EventView::where('id', $id)->first();
-        return view("edit-detail",compact("selectedEvent"));
+        $data= EventDetails::where("event_id",$id)->get();
+
+        return view("edit-detail",compact("selectedEvent","data"));
     }
 
 

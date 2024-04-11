@@ -8,18 +8,18 @@ import Axios from "axios";
 const quill = new Quill('#editor', {
     modules: {
         toolbar: [
-            [{ header: [1, 2,3,4,5,6,false] }],
+            [{ header: [1, 2,3,4,5,6,false] },],
+            [{'size':[]}],
             [{ 'font': [] }],
             ['bold', 'italic', 'underline','strike'],
-            ['blockquote', 'code-block'],
+            ['blockquote'],
             [{ 'list': 'ordered' }, { 'list': 'bullet' }],
             [{ 'indent': '-1' }, { 'indent': '+1' }],
             [{ 'color': [] }, { 'background': [] }],
 
             [{ 'align': [] }],
             ["image",'video'],
-            //数式
-            ['formula'],
+
             //URLリンク
             ['link'] ,
             ['clean']
@@ -27,10 +27,46 @@ const quill = new Quill('#editor', {
     },
     placeholder: 'こちらにご入力ください...',
     theme: 'snow', // or 'bubble'
+    bounds: document.body
 });
 
+// =========================================================[img]================================================================
 
+function selectLocalImage() {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.click();
 
+    // Listen upload local image and save to server
+    input.onchange = () => {
+        const file = input.files[0];
+
+        // file type is only image.
+        if (/^image\//.test(file.type)) {
+            // saveToServer(file);
+        } else {
+            console.warn('You could only upload images.');
+        }
+    };
+}
+quill.getModule('toolbar').addHandler('image', () => {
+    selectLocalImage();
+});
+
+// ======================================[エディター内にデータを表示する]================================================================
+//表示させる文章データを取得
+let json_data = Laravel.data
+let setdata = [
+
+]
+json_data.forEach((value,idx)=>{
+    setdata.push({"insert":JSON.parse(value["insert"]),"attributes":JSON.parse(value["attributions"])})
+})
+
+//データを表示
+quill.setContents(setdata);
+
+// ======================================[データをlaravelへ受け渡し]================================================================
 document.getElementById('submit_btn').addEventListener('click', (e) => {
     const ops = quill.getContents().ops;
 
@@ -56,6 +92,7 @@ document.getElementById('submit_btn').addEventListener('click', (e) => {
             'Content-Type': 'application/json',
         }
         }).then(
+            alert("登録完了"),
             response => console.log(response.data)
         ).catch(
             error => console.log(error)
