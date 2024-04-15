@@ -21,6 +21,8 @@ function QuillPageMake() {
         setdata.push({"insert":JSON.parse(value["insert"]),"attributes":JSON.parse(value["attributions"])})
     })
 
+    console.log(setdata)
+
     //データを表示
     quill.setContents(setdata);
 
