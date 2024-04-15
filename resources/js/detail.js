@@ -83,7 +83,6 @@ function showdata() {
     }
     console.log(json_data)
 
-
     let setdata = []
     json_data.forEach((value, idx) => {
         if(flag===false) {
