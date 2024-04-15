@@ -33,7 +33,7 @@ const quill = new Quill('#editor', {
 let btn = document.getElementById('submit_btn');
 let newImg = null;
 let flag = false;
-let te = null;
+let tmpData = null;
 // =========================================================[img]================================================================
 
 function selectLocalImage() {
@@ -56,7 +56,15 @@ function selectLocalImage() {
             const base64String = reader.result;
             console.log(base64String);
             newImg = base64String;
-            te = quill.getContents().ops;
+
+            // 現在のカーソル位置に画像データを追加
+            if(newImg !== null) {
+                // 挿入する位置を取得
+                let index = getCurrentIndex();
+                // 画像を挿入する
+                quill.insertEmbed(index, 'image', newImg);
+            }
+            tmpData = quill.getContents().ops;
             showdata()
         };
 
@@ -79,7 +87,7 @@ function showdata() {
     if(flag === false) {
         json_data = Laravel.data;
     }else{
-        json_data = te;
+        json_data = tmpData;
     }
     console.log(json_data)
 
@@ -92,21 +100,24 @@ function showdata() {
         }
     })
 
-    if (newImg !== null) {
-        setdata.push({
-            "insert": {
-                "image": newImg
-            }
-        });
-    }
-
-//データを表示
+    //データを表示
     quill.setContents(setdata);
     newImg = null;
     flag = true;
 }
 
 showdata()
+
+// ======================================[現在のカーソル位置取得]================================================================
+function getCurrentIndex() {
+    // 現在のカーソル位置を取得
+    let selection = quill.getSelection();
+    if(selection) {
+        return selection.index;
+    } else {
+        return 0; // カーソル位置がない場合は0を返す
+    }
+}
 // ======================================[データをlaravelへ受け渡し]================================================================
 
 btn.addEventListener('click', () => {
