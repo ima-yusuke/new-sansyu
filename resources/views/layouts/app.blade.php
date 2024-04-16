@@ -16,6 +16,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="{{asset('js/file-upload.js')}}"></script>
         <script src="{{asset('js/dashboard-toggle.js')}}"></script>
+
+{{--        TOAST UI--}}
+        <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.css">
+        <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     </head>
 
     <body class="font-sans antialiased mb-6 min-h-contents bg-gray-100">

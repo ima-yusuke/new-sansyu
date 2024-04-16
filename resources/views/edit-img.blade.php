@@ -27,10 +27,25 @@
         <a id="downloadLink" download="resized_image.png">Download Resized Image</a> <!-- ダウンロードリンク -->
 
         <img id="imagePreview" src="#" alt="Preview"> <!-- リサイズされた画像のプレビュー -->
+
     </section>
 
 
     <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0]; // 選択されたファイルを取得
+            const reader = new FileReader(); // FileReaderオブジェクトを作成
+
+            reader.onload = function(event) {
+                const imageDataUrl = event.target.result; // 画像のデータURLを取得
+                const img = document.getElementById('imagePreview'); // プレビュー要素を取得
+                img.src = imageDataUrl; // プレビュー要素の画像を設定
+            };
+
+            reader.readAsDataURL(file); // ファイルを読み込む
+        });
+
+
         document.getElementById('resizeButton').addEventListener('click', function() {
             const img = document.createElement('img'); // 画像要素を作成
             const canvas = document.getElementById('canvas'); // キャンバス要素を取得
