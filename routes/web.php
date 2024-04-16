@@ -26,6 +26,8 @@ Route::get('/detail/{id}', [\App\Http\Controllers\kikukawaController::class,"ope
 Route::get('/dashboard/edit-detail/{id}', [\App\Http\Controllers\kikukawaController::class,"openEditDetail"])->name('openEditDetail');
 Route::post('/posts', [\App\Http\Controllers\kikukawaController::class,"storeData"])->name('posts');
 
+Route::get('/dashboard/edit-img', [\App\Http\Controllers\kikukawaController::class,"editImg"])->name('editImg');
+
 //=====================================================================================================
 
 //Route::get('/', function () {

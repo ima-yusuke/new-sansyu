@@ -19,8 +19,8 @@
             {{--Axios通信のため--}}
             <input type="hidden" value="{{$selectedEvent["id"]}}" id="selected_id">
 
-            <div class="flex justify-center">
-                <button id="submit_btn" type="button" data-route="{{ route('posts') }}" class="mt-8 btn btn-border shadow-xl text-sm px-10 py-3 text-center">登録</button>
+            <div class="flex justify-center py-10">
+                <button id="submit_btn" type="button" data-route="{{ route('posts') }}" class="btn btn-border shadow-xl text-sm px-10 py-3 text-center">登録</button>
             </div>
 
         </div>

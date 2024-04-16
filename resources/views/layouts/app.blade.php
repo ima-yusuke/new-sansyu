@@ -16,28 +16,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="{{asset('js/file-upload.js')}}"></script>
         <script src="{{asset('js/dashboard-toggle.js')}}"></script>
-
-
-
-{{--        スクロール可能案内（tableの親divのclassにjs-scrollableを追加する必要あり --}}
-{{--        <link rel="stylesheet" href="https://unpkg.com/scroll-hint@latest/css/scroll-hint.css">--}}
-{{--        <script src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"></script>--}}
-{{--        <script>--}}
-{{--            window.addEventListener('DOMContentLoaded', function () {--}}
-{{--                new ScrollHint('.js-scrollable', {--}}
-{{--                    // scrollHintIconAppendClass: 'scroll-hint-icon-white',--}}
-{{--                    suggestiveShadow: true,--}}
-{{--                    i18n: {--}}
-{{--                        scrollable: "スクロール出来ます"--}}
-{{--                    },--}}
-{{--                    remainingTime:-1,--}}
-{{--                });--}}
-{{--            });--}}
-{{--        </script>--}}
-
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+
+    <body class="font-sans antialiased mb-6 min-h-contents bg-gray-100">
+        <div>
             @include('layouts.navigation')
 
             <!-- Page Heading -->

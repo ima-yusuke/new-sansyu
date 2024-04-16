@@ -109,5 +109,10 @@ class kikukawaController extends Controller
             return ['msg' => $e->getMessage(), 'request' => $request->all()];
         }
     }
+
+    public function editImg()
+    {
+        return view("edit-img");
+    }
 }
 

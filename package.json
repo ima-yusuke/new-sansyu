@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "flowbite": "^2.3.0",
-        "quill": "^2.0.0-rc.5"
+        "quill": "^2.0.0-rc.5",
+        "tui-image-editor": "^3.15.3"
     }
 }

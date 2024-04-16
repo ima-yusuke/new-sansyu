@@ -34,7 +34,7 @@ let btn = document.getElementById('submit_btn');
 let newImg = null;
 let flag = false;
 let tmpData = null;
-// =========================================================[img]================================================================
+// =========================================================[imgボタンをクリックしたときの処理]================================================================
 
 function selectLocalImage() {
     const input = document.createElement('input');
@@ -54,7 +54,6 @@ function selectLocalImage() {
 
             // プロパティを使用して読み込んだデータにアクセスする
             const base64String = reader.result;
-            console.log(base64String);
             newImg = base64String;
 
             // 現在のカーソル位置に画像データを追加
@@ -96,7 +95,7 @@ function showdata() {
         if(flag===false) {
             setdata.push({"insert": JSON.parse(value["insert"]), "attributes": JSON.parse(value["attributions"])})
         }else{
-            setdata.push({"insert": value["insert"], "attributes": value["attributions"]})
+            setdata.push({"insert": value["insert"], "attributes": value["attributes"]})
         }
     })
 
