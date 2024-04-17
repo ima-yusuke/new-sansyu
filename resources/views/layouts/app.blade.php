@@ -17,9 +17,11 @@
         <script src="{{asset('js/file-upload.js')}}"></script>
         <script src="{{asset('js/dashboard-toggle.js')}}"></script>
 
-{{--        TOAST UI--}}
-        <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.css">
-        <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
+        {{--Cropper.js(トリミング）--}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+
     </head>
 
     <body class="font-sans antialiased mb-6 min-h-contents bg-gray-100">
