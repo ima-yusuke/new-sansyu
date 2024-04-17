@@ -96,12 +96,9 @@ class dashJobOpening extends Controller
             $tmp_title ="info_title".$count;
             $tmp_content ="info_content".$count;
 
-            if($request[$tmp_title]!=null){
-                $plan->update([
-                    "job_title"=>$request[$tmp_title]
-                ]);
-            };
-
+            $plan->update([
+                "job_title"=>$request[$tmp_title]
+            ]);
             if($request[$tmp_content]!=null){
                 $plan->update([
                     "job_content" =>$request[$tmp_content]

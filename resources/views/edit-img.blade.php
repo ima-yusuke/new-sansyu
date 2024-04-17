@@ -1,6 +1,4 @@
 <x-dash-layout>
-
-
     <section class="flex flex-col items-center justify-center gap-4">
         <!-- 画像を選択するためのファイル入力フィールド -->
         <div>
@@ -8,20 +6,26 @@
         </div>
 
         <div>
-            <label for="sizeInput">サイズ:</label>
-            <input type="number" id="sizeInput" min="1">
+            <label for="sizeInput">画像サイズ:</label>
+            <input type="number" id="sizeInput" min="1" placeholder="100">
         </div>
 
         <!-- サイズ変更ボタン -->
         <div class="flex justify-center gap-4 py-10">
             <div>
-                <button id="resizeButton" type="button" class="btn btn-border shadow-xl text-sm px-10 py-3 text-center">サイズ変更</button>
+                <button id="resizeButton" type="button" class="btn btn-border shadow-xl text-sm px-10 py-3 text-center">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center pr-1"></i>サイズ変更
+                </button>
             </div>
             <div>
-                <button id="cutButton" type="button" class="btn btn-border shadow-xl text-sm px-10 py-3 text-center">トリミング</button>
+                <button id="cutButton" type="button" class="btn btn-border shadow-xl text-sm px-10 py-3 text-center">
+                    <i class="fa-solid fa-scissors pr-1"></i>トリミング
+                </button>
             </div>
             <div>
-                <a id="downloadLink" download="resized_image.png" style="display: none;" class="btn btn-border shadow-xl text-sm px-8 py-3 text-center h-full">ダウンロード</a> <!-- ダウンロードリンク -->
+                <a id="downloadLink" download="resized_image.png" style="display: none;" class="btn btn-border shadow-xl text-sm px-8 py-3 text-center h-full">
+                    <i class="fa-solid fa-file-arrow-down pr-1"></i>ダウンロード
+                </a> <!-- ダウンロードリンク -->
             </div>
         </div>
 
@@ -52,27 +56,25 @@
                 const imageDataUrl = event.target.result; // 画像のデータURLを取得
                 img.src = imageDataUrl; // プレビュー要素の画像を設定
                 preview.src = imageDataUrl;
+
                 // トリミング
                 let cropper = new Cropper(img);
                 document.getElementById('cutButton').addEventListener('click', function () {
                     // トリミングパネル内のcanvasを取得
                     let canvas = cropper.getCroppedCanvas()
+
                     // canvasをbase64に変換
                     let data = canvas.toDataURL();
-
 
                     // previewにセットする
                     preview.src = data;
                 });
             };
-
             reader.readAsDataURL(file); // ファイルを読み込む
-
         });
 
         // サイズ変更ボタンをクリック時の処理
         document.getElementById('resizeButton').addEventListener('click', function() {
-            // const img = document.getElementById('imagePreview'); // プレビュー要素を取得
             let size = document.getElementById('sizeInput').value; // サイズを取得
 
             if (size) { // サイズが入力されている場合
