@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\JobOpening;
 use App\Models\JobCategory;
 use Illuminate\Support\Facades\DB;
+use function Livewire\store;
 
 
 class dashJobOpening extends Controller
@@ -68,7 +69,6 @@ class dashJobOpening extends Controller
             $job_categories->job_content =$request->$tmp_content;
             $job_categories->save();
         }
-
 
         // 元のページに戻る
         return redirect()->route('show-job_opening');

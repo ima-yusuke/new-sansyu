@@ -54,6 +54,11 @@ button,a{
     padding-bottom: 5rem;
 }
 
+.fixed-size-parent {
+    width: 600px; /* 固定の幅を指定 */
+    height: 400px; /* 固定の高さを指定 */
+}
+
 @media (min-width: 1024px) {
     .commonSectionStyles {
         padding-top: 8rem;
