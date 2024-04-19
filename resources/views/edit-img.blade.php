@@ -3,40 +3,40 @@
     <div class="md:flex">
         <ul id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist" class="flex-column space-y space-y-4 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
             <li class="me-2" role="presentation">
-{{--                <a href="#" id="profile-tab" data-tabs-target="#profile" role="tab" aria-controls="profile" aria-selected="false" class="whitespace-nowrap inline-flex items-center gap-2 px-4 py-3 text-white bg-blue-700 rounded-lg active w-full" aria-current="page">--}}
-                    <i class="fa-solid fa-arrow-down pr-1"></i>プレビュー
-{{--                </a>--}}
-            </li>
-            <li class="me-2" role="presentation">
-                <a href="#" id="profile-tab" data-tabs-target="#profile" role="tab" aria-controls="profile" aria-selected="false" class="whitespace-nowrap inline-flex items-center gap-2 px-4 py-3 text-white bg-blue-700 rounded-lg active w-full" aria-current="page">
-                    <i class="fa-solid fa-arrow-down pr-1"></i>画像読込み
+                <a href="#" id="read-img-tab" data-tabs-target="#read-img" role="tab" aria-controls="read-img" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                    <i class="fa-solid fa-upload pr-1"></i>画像読込み
                 </a>
             </li>
             <li class="me-2" role="presentation">
-                <a href="#" id="dashboard-tab" data-tabs-target="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                <a href="#imagePreview" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                    <i class="fa-solid fa-arrow-down pr-1"></i>プレビュー
+                </a>
+            </li>
+            <li class="me-2" role="presentation">
+                <a href="#" id="size-img-tab" data-tabs-target="#size-img" role="tab" aria-controls="size-img" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
                     <i class="fa-solid fa-up-right-and-down-left-from-center pr-1"></i>サイズ変更
                 </a>
             </li>
             <li class="me-2" role="presentation">
-                <a href="#" id="settings-tab" data-tabs-target="#settings" role="tab" aria-controls="settings" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                <a href="#" id="trimming-img-tab" data-tabs-target="#trimming-img" role="tab" aria-controls="trimming-img" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
                     <i class="fa-solid fa-scissors pr-1"></i>トリミング
                 </a>
             </li>
             <li class="me-2" role="presentation">
-                <a href="#" id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                <a href="#" id="download-img-tab" data-tabs-target="#download-img" role="tab" aria-controls="download-img" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
                     <i class="fa-solid fa-file-arrow-down pr-1"></i>ダウンロード
                 </a>
             </li>
         </ul>
 
         <div id="default-tab-content" class="p-6 bg-gray-50 text-medium text-gray-500 rounded-lg w-full">
-            <!-- 画像を選択するためのファイル入力フィールド -->
-            <div class="hidden p-4 rounded-lg bg-gray-50" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <!-- 画像アップロード -->
+            <div class="hidden p-4 rounded-lg bg-gray-50" id="read-img" role="tabpanel" aria-labelledby="read-img-tab">
                 <input type="file" id="fileInput" accept="image/*">
             </div>
 
             {{--サイズ変更--}}
-            <div class="flex gap-8 p-4 rounded-lg bg-gray-50" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+            <div class="flex gap-8 p-4 rounded-lg bg-gray-50" id="size-img" role="tabpanel" aria-labelledby="size-img-tab">
                 <div>
                     <label for="sizeInput">画像サイズ:</label>
                     <input type="number" id="sizeInput">
@@ -48,14 +48,8 @@
                 </div>
             </div>
 
-            {{--トリミング用の画像--}}
-            <div style='width: 600px; height: 400px;' id="trimming">
-                {{--トリミング用の画像--}}
-                {{--                <img id="trimmingImg" src="#">--}}
-            </div>
-
-
-            <div class="p-4 rounded-lg bg-gray-50" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+            {{--トリミング--}}
+            <div class="p-4 rounded-lg bg-gray-50" id="trimming-img" role="tabpanel" aria-labelledby="trimming-img-tab">
                 <div>
                     <button id="cutButton" type="button" class="btn btn-border shadow-xl text-sm px-10 py-3 text-center">
                         <i class="fa-solid fa-scissors pr-1"></i>トリミング
@@ -64,10 +58,15 @@
             </div>
 
             <!-- ダウンロードリンク -->
-            <div class="hidden p-4 rounded-lg bg-gray-50 " id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
-                <a id="downloadLink" download="resized_image.png" style="display: none;" class="btn btn-border shadow-xl text-sm px-8 py-3 text-center h-full">
+            <div class="hidden p-4 rounded-lg bg-gray-50 " id="download-img" role="tabpanel" aria-labelledby="download-img-tab">
+                <a id="downloadLink" download="resized_image.png" class="btn btn-border shadow-xl text-sm px-8 py-3 text-center block w-[200px] h-full">
                     <i class="fa-solid fa-file-arrow-down pr-1"></i>ダウンロード
                 </a>
+            </div>
+
+            {{--トリミング用の画像--}}
+            <div style='width: 600px; height: 400px;' id="trimming">
+
             </div>
         </div>
     </div>
@@ -76,8 +75,9 @@
     <canvas id="canvas" style="display: none;"></canvas>
 
     <!-- 画像のプレビュー -->
-    <img id="imagePreview" src="#" alt="プレビュー" class="py-6">
-
+    <div class="flex justify-center">
+        <img id="imagePreview" src="#" alt="プレビュー" class="py-6">
+    </div>
 
     <script>
         let trimmingImg = null;
@@ -110,6 +110,10 @@
                 imageDataUrl = event.target.result; // 画像のデータURLを取得
                 preview.src = imageDataUrl;
 
+                // プレビュー画像のリセット
+                preview.style.width = null;
+                preview.style.height =null;
+
                 // ファイル再読み込み時の処理
                 if(flag===false) {
                     cropper.destroy()
@@ -120,9 +124,9 @@
         });
 
         // ===================================[トリミング]===========================================
-        let btn_A = document.getElementById("profile-tab");
-        let btn_B = document.getElementById("dashboard-tab");
-        let btn_C = document.getElementById("contacts-tab");
+        let btn_A = document.getElementById("read-img-tab");
+        let btn_B = document.getElementById("size-img-tab");
+        let btn_C = document.getElementById("download-img-tab");
         let btns = [btn_A,btn_B,btn_C];
         btns.forEach((value)=>{
             value.addEventListener("click",function (){
@@ -133,7 +137,7 @@
         })
 
 
-        document.getElementById("settings-tab").addEventListener("click",function (){
+        document.getElementById("trimming-img-tab").addEventListener("click",function (){
             if(flag===true) {
                 createTrimImg();
                 flag = false;
@@ -153,10 +157,11 @@
         function setImgWidth() {
             let widthInPixels = parseInt(preview.clientWidth);
             let inp = document.getElementById("sizeInput");
-            inp.setAttribute('value', widthInPixels);
+            inp.value = null;
+            inp.value= widthInPixels;
         }
 
-        document.getElementById("dashboard-tab").addEventListener("click",setImgWidth);
+        document.getElementById("size-img-tab").addEventListener("click",setImgWidth);
 
         // ===================================[サイズ変更]===========================================
         // サイズ変更ボタンをクリック時の処理
