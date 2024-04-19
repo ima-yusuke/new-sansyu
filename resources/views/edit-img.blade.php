@@ -1,14 +1,15 @@
 <x-dash-layout>
 
     <div class="md:flex">
-        <ul id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist" class="flex-column space-y space-y-4 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
+        {{--アップロード後のtabメニュー--}}
+        <ul id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist" style="display: none" class="flex-column space-y space-y-4 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
             <li class="me-2" role="presentation">
-                <a href="#" id="read-img-tab" data-tabs-target="#read-img" role="tab" aria-controls="read-img" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                <a href="#" id="read-img-tab" data-tabs-target="#read-img" role="tab" aria-controls="read-img" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-blue-50 hover:bg-gray-100 w-full">
                     <i class="fa-solid fa-upload pr-1"></i>画像読込み
                 </a>
             </li>
             <li class="me-2" role="presentation">
-                <a href="#imagePreview" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                <a href="#imagePreview" id="preview-img-tab" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
                     <i class="fa-solid fa-arrow-down pr-1"></i>プレビュー
                 </a>
             </li>
@@ -24,6 +25,35 @@
             </li>
             <li class="me-2" role="presentation">
                 <a href="#" id="download-img-tab" data-tabs-target="#download-img" role="tab" aria-controls="download-img" aria-selected="false" class="whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                    <i class="fa-solid fa-file-arrow-down pr-1"></i>ダウンロード
+                </a>
+            </li>
+        </ul>
+
+        {{--最初のtabメニュー--}}
+        <ul id="first-ul" class="flex-column space-y space-y-4 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
+            <li class="me-2" role="presentation">
+                <a href="#" class="text-blue-600 whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                    <i class="fa-solid fa-upload pr-1"></i>画像読込み
+                </a>
+            </li>
+            <li class="me-2" role="presentation">
+                <a class="inactiveImg whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                    <i class="fa-solid fa-arrow-down pr-1"></i>プレビュー
+                </a>
+            </li>
+            <li class="me-2" role="presentation">
+                <a href="#" class="inactiveImg whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center pr-1"></i>サイズ変更
+                </a>
+            </li>
+            <li class="me-2" role="presentation">
+                <a href="#" class="inactiveImg whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                    <i class="fa-solid fa-scissors pr-1"></i>トリミング
+                </a>
+            </li>
+            <li class="me-2" role="presentation">
+                <a href="#" class="inactiveImg whitespace-nowrap inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
                     <i class="fa-solid fa-file-arrow-down pr-1"></i>ダウンロード
                 </a>
             </li>
@@ -79,13 +109,23 @@
         <img id="imagePreview" src="#" alt="プレビュー" class="py-6">
     </div>
 
+
     <script>
-        let trimmingImg = null;
         let preview = document.getElementById('imagePreview');
         let cropper = null;
         let imageDataUrl =null;
         let flag = true;
         let uniqueId = null;
+
+        // ファイルアップロード前の他のボタンを押すとアラート
+        let lists =document.getElementsByClassName("inactiveImg");
+
+        Array.from(lists).forEach((value)=>{
+            console.log(value)
+            value.addEventListener("click",function (){
+                alert("ファイルを選択してください")
+            })
+        })
 
         function removeTrimmingImg() {
             document.getElementById(uniqueId).remove();
@@ -119,6 +159,9 @@
                     cropper.destroy()
                     createTrimImg()
                 }
+
+                document.getElementById("first-ul").style.display = "none";
+                document.getElementById("default-tab").style.display = "block";
             };
             reader.readAsDataURL(file); // ファイルを読み込む
         });
@@ -181,7 +224,6 @@
                 const dataUrl = canvas.toDataURL('image/png'); // Canvasを画像データURLに変換
                 const downloadLink = document.getElementById('downloadLink'); // ダウンロードリンクを取得
                 downloadLink.href = dataUrl; // ダウンロードリンクのhref属性に画像データURLを設定
-                downloadLink.style.display = 'block'; // ダウンロードリンクを表示
             }
         });
 
