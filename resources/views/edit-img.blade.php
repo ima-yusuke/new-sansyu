@@ -121,7 +121,6 @@
         let lists =document.getElementsByClassName("inactiveImg");
 
         Array.from(lists).forEach((value)=>{
-            console.log(value)
             value.addEventListener("click",function (){
                 alert("ファイルを選択してください")
             })
