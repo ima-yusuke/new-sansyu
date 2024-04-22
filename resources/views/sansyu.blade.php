@@ -16,7 +16,7 @@
                 </aside>
             </div>
             <div>
-                <img src="{{asset("storage/img/kikukawaPic01.png")}}" class="max-w-full ml-auto pl-5 mt-60 md:mt-100 object-cover" alt="image">
+                <img src="{{ asset('storage/img/kikukawaPic01.png') }}" class="max-w-full ml-auto pl-5 mt-60 md:mt-100 object-cover" alt="image">
             </div>
         </section>
 
