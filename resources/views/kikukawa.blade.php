@@ -16,7 +16,7 @@
                 </aside>
             </div>
             <div>
-                <img src="{{asset("img/kikukawaPic01.png")}}" class="max-w-full ml-auto pl-5 mt-60 md:mt-100 object-cover" alt="image">
+                <img src="{{asset("storage/img/kikukawaPic01.png")}}" class="max-w-full ml-auto pl-5 mt-60 md:mt-100 object-cover" alt="image">
             </div>
         </section>
 
@@ -52,7 +52,7 @@
 
         {{--会社紹介--}}
         <section id="about" class="flex flex-col-reverse gap-12 md:flexCenter py-24 lg:py-32 mx-4">
-            <img src="{{asset("img/kikukawaPic02.jpg")}}" class="rounded-15 shrink-0 object-cover md:w-[40%]" alt="image">
+            <img src="{{asset("storage/img/kikukawaPic02.jpg")}}" class="rounded-15 shrink-0 object-cover md:w-[40%]" alt="image">
             <article class="flexColumnCenter gap-12 md:w-[40%]">
                 <div class="flex flex-col items-start gap-9">
                     {{--タイトル--}}
@@ -129,7 +129,7 @@
                                 <div class="w-full md:w-270 md:h-330 flex justify-start items-start relative">
                                     <img src="{{asset($value["path"])}}"
                                          class="rounded-8 w-full h-full object-cover" alt="image">
-                                    <img src="{{asset("img/messageBg.jpg")}}"
+                                    <img src="{{asset("storage/img/messageBg.jpg")}}"
                                          class="bottom-5 left-0 right-0 m-auto m-0 absolute rounded-8" alt="image">
                                     <aside
                                         class="flexColumn items-center gap-px absolute left-0 right-0 m-0 m-auto bottom-12">
@@ -289,7 +289,7 @@
                     <aside class="flexColumn items-start gap-4">
                         @foreach($recruit_documents as $value)
                             <div class="flex items-center gap-2.5">
-                                <img src="{{asset("img/kikukawaPic11.jpg")}}" class="w-20 h-20" alt="image">
+                                <img src="{{asset("storage/img/kikukawaPic11.jpg")}}" class="w-20 h-20" alt="image">
                                 <p class="font-medium">{{$value}}</p>
                             </div>
                         @endforeach

@@ -26,7 +26,6 @@ class dashProduct extends Controller
         $request->file('image')->storeAs('public/img', $file_name);
 
         //データベースに製品名と画像パスを保存
-//        ※全てstorage内に保存されるのでpubicで使えるようにシンボリックリンクコマンド実行必要
         $products = new Product();
         $products->p_name = $request->p_name;
         $products->path = 'storage/img/'.$file_name;
