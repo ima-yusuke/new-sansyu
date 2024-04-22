@@ -2,6 +2,7 @@
     <div><a href="#"
             class="text-sm md:text-base font-bold text-titleBlack md:px-4">株式会社三秀</a>
     </div>
+
     {{--通常メニュー--}}
     <nav class="hidden xl:flex justify-end items-center gap-12 shrink-0">
         <aside class="flex items-center gap-11">
