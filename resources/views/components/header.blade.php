@@ -1,6 +1,6 @@
 <header class="flexBetween h-16 md:h-70 xl:h-24 w-full px-4 md:px-8 2xl:px-24 fixed md:gap-24 bg-white bg-opacity-75 backdrop-blur-[5px] z-100">
     <div><a href="#"
-            class="text-sm md:text-base font-bold text-titleBlack md:px-4">キクカワエンタープライズ株式会社</a>
+            class="text-sm md:text-base font-bold text-titleBlack md:px-4">株式会社三秀</a>
     </div>
     {{--通常メニュー--}}
     <nav class="hidden xl:flex justify-end items-center gap-12 shrink-0">

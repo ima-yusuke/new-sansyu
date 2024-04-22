@@ -49,7 +49,7 @@ class kikukawaController extends Controller
         $recruit_documents = ["履歴書(写真付き)", "成績証明書", "卒業見込証明書"];
 
 
-        return view("kikukawa", compact("categories", "products", "messages", "recruit_flow", "recruit_documents", "questions", "interviews", "job_recruits", "benefits"));
+        return view("sansyu", compact("categories", "products", "messages", "recruit_flow", "recruit_documents", "questions", "interviews", "job_recruits", "benefits"));
     }
 
     //ユーザー側イベントページ表示

@@ -1,8 +1,8 @@
 <?php
-//registerページを読み込むとlogin.blade.phpを表示する
+////registerページを読み込むとlogin.blade.phpを表示する
 header("Location: login");
 exit;
-?>
+//?>
 
 {{--<x-guest-layout>--}}
 {{--    <form method="POST" action="{{ route('register') }}">--}}

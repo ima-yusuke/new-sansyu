@@ -4,24 +4,10 @@
     <main class="bg-main flex flex-col items-center h-full">
 
         {{--ヘッダービジュアル--}}
-        <section id="home" class="flexColumn lg:flexBetween relative z-10 w-full pb-16">
-            <div class="flexColumn md:gap-12 gap-6 text-baseColor pt-24 lg:pt-0 2xl:pt-12 pl-3 md:pl-12 2xl:pl-24">
-                <p class="text-sm md:text-base 2xl:text-xl font-medium">キクカワエンタープライズ株式会社 採用特設サイト</p>
-                <aside class="flexColumn items-start gap-6 md:gap-10 2xl:gap-16">
-                    <div class="flexColumn text-2xl md:text-5xl 2xl:text-6xl font-bold md:gap-y-3">
-                        <h2><i>KIKUKAWA</i>で見つけよう、</h2>
-                        <h2>わたしのミライ。</h2>
-                    </div>
-                    <h4 class="text-base md:text-2xl 2xl:text-3xl font-bold">あなたの情熱、私たちと共有しませんか？</h4>
-                </aside>
-            </div>
-            <div>
-                <img src="{{ asset('storage/img/kikukawaPic01.png') }}" class="max-w-full ml-auto pl-5 mt-60 md:mt-100 object-cover" alt="image">
-            </div>
+        <section id="home">
+            <img src="{{asset("storage/img/top_bg.png")}}" class="object-cover w-full h-[850px] bg-cover bg-center " alt="image">
         </section>
 
-        {{--ヘッダー背景ボール--}}
-        <div class="rounded-1019 shadow-headBall h-1000 2xl:h-1200 w-1000 2xl:w-1200 absolute left-428 top-413 bg-gradient-to-r from-headLinerStart from-32.36% to-headLinerEnd to-79.42%"></div>
 
         {{--開催情報--}}
         <section class="commonSectionStyles w-full">
